@@ -39,6 +39,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinched))
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
+        longPressGestureRecognizer.minimumPressDuration = 0.1
         self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
