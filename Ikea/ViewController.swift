@@ -38,6 +38,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinched))
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
+        self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         
@@ -109,6 +111,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.planeDetected.isHidden = true
             }
         }
+    }
+    
+    @objc func rotate(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == .began {
+        
+            print("holding")
+        } else if sender.state == .ended {
+            print("released finger")
+        }
+        
+        
     }
     
 }
