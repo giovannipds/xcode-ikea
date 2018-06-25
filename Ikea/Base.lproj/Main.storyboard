@@ -60,12 +60,20 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWi-Wu-6He">
                                 <rect key="frame" x="0.0" y="-1" width="375" height="592"/>
                             </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Plane Detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjY-BI-Cda">
+                                <rect key="frame" x="125" y="19" width="126.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GWi-Wu-6He" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5oQ-W2-azK"/>
+                            <constraint firstItem="yjY-BI-Cda" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UkO-WC-yf0"/>
                             <constraint firstItem="GWi-Wu-6He" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Vti-4N-ReI"/>
                             <constraint firstItem="4xA-Ec-zjx" firstAttribute="top" secondItem="GWi-Wu-6He" secondAttribute="bottom" id="Xa9-QJ-t0J"/>
+                            <constraint firstItem="yjY-BI-Cda" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gwz-p7-qJj"/>
                             <constraint firstItem="4xA-Ec-zjx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hv2-nN-gpH"/>
                             <constraint firstItem="4xA-Ec-zjx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jcA-ch-Qdc"/>
                             <constraint firstItem="4xA-Ec-zjx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zbz-K0-7IY"/>
@@ -75,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="itemsCollectionView" destination="4xA-Ec-zjx" id="Fth-Xw-CNe"/>
+                        <outlet property="planeDetected" destination="yjY-BI-Cda" id="LTs-ru-N1C"/>
                         <outlet property="sceneView" destination="GWi-Wu-6He" id="1CB-Ya-m4M"/>
                     </connections>
                 </viewController>
