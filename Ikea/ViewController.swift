@@ -15,6 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     let configuration = ARWorldTrackingConfiguration()
+    var selectedItem: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
@@ -45,11 +46,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let tapLocation = sender.location(in: sceneView)
         let hitTest = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
         if !hitTest.isEmpty {
-            print("touched a horizontal surface")
-        } else {
-            print("no match")
+            self.addItem(hitTestResult: hitTest.first!)
         }
         
+    }
+    
+    func addItem(hitTestResult: ARHitTestResult) {
+        if let selectedItem = self.selectedItem {
+            let scene = SCNScene(named: "Assets/\(selectedItem).scn")
+            let node = (scene?.rootNode.childNode(withName: selectedItem, recursively: false))!
+            let transform = hitTestResult.worldTransform
+            let thirdColumn = transform.columns.3
+            node.position = SCNVector3(thirdColumn.x, thirdColumn.y, thirdColumn.z)
+            self.sceneView.scene.rootNode.addChildNode(node)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -62,6 +72,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
+        self.selectedItem = itemsArray[indexPath.row]
         cell?.backgroundColor = UIColor.green
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
