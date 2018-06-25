@@ -53,6 +53,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
             print(sender.scale)
             node.runAction(pinchAction)
+            sender.scale = 1.0
         }
         
         
