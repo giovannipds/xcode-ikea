@@ -114,12 +114,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     @objc func rotate(sender: UILongPressGestureRecognizer) {
-        
-        if sender.state == .began {
-        
-            print("holding")
-        } else if sender.state == .ended {
-            print("released finger")
+        let sceneView = sender.view as! ARSCNView
+        let holdLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(holdLocation)
+        if !hitTest.isEmpty {
+            
+            let result = hitTest.first!
+            if sender.state == .began {
+                let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(360.degreesToRadians), z: 0, duration: 1)
+                let forever = SCNAction.repeatForever(rotation)
+                result.node.runAction(forever)
+                print("holding")
+            } else if sender.state == .ended {
+                result.node.removeAllActions()
+            }
+            
         }
         
         
@@ -127,3 +136,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
 }
 
+extension Int {
+    
+    var degreesToRadians: Double { return Double(self) * .pi/180}
+}
