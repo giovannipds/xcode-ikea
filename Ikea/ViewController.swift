@@ -51,6 +51,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let results = hitTest.first!
             let node = results.node
             let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
+            print(sender.scale)
             node.runAction(pinchAction)
         }
         
