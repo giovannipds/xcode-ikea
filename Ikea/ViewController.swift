@@ -103,12 +103,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard anchor is ARPlaneAnchor else {return}
-        self.planeDetected.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.planeDetected.isHidden = true
+        DispatchQueue.main.async {
+            self.planeDetected.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.planeDetected.isHidden = true
+            }
         }
     }
-
-
+    
 }
 
