@@ -9,7 +9,7 @@
 import UIKit
 import ARKit
 
-class ViewController: UIViewController, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let itemsArray: [String] = ["cup", "vase", "boxing", "table"]
     @IBOutlet weak var sceneView: ARSCNView!
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.sceneView.session.run(configuration)
         self.itemsCollectionView.dataSource = self
+        self.itemsCollectionView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -35,6 +36,10 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! itemCell
         cell.itemLabel.text = self.itemsArray[indexPath.row]
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.green
     }
 
 
