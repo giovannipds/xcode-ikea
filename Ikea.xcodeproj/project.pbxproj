@@ -15,6 +15,7 @@
 		AD7AFB0620E082C1008E8C95 /* IkeaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AFB0520E082C1008E8C95 /* IkeaTests.swift */; };
 		AD7AFB1120E082C1008E8C95 /* IkeaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AFB1020E082C1008E8C95 /* IkeaUITests.swift */; };
 		AD7AFB1F20E08A44008E8C95 /* itemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7AFB1E20E08A44008E8C95 /* itemCell.swift */; };
+		AD7AFB2120E0997B008E8C95 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = AD7AFB2020E0997B008E8C95 /* Assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AD7AFB1020E082C1008E8C95 /* IkeaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IkeaUITests.swift; sourceTree = "<group>"; };
 		AD7AFB1220E082C1008E8C95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD7AFB1E20E08A44008E8C95 /* itemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCell.swift; sourceTree = "<group>"; };
+		AD7AFB2020E0997B008E8C95 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		AD7AFAEF20E082BC008E8C95 /* Ikea */ = {
 			isa = PBXGroup;
 			children = (
+				AD7AFB2020E0997B008E8C95 /* Assets */,
 				AD7AFAF020E082BC008E8C95 /* AppDelegate.swift */,
 				AD7AFAF220E082BC008E8C95 /* ViewController.swift */,
 				AD7AFB1E20E08A44008E8C95 /* itemCell.swift */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD7AFAFB20E082C1008E8C95 /* LaunchScreen.storyboard in Resources */,
+				AD7AFB2120E0997B008E8C95 /* Assets in Resources */,
 				AD7AFAF820E082C1008E8C95 /* Assets.xcassets in Resources */,
 				AD7AFAF620E082BC008E8C95 /* Main.storyboard in Resources */,
 			);
